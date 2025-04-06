@@ -1,21 +1,11 @@
+import ClassComponent from "./ClassComponent";
+import FunctionalComponent from "./FunctionalComponent";
+
 const App = () => {
   return (
     <div>
-      <div
-        className=""
-        style={{
-          backgroundColor: "black",
-          width: "120px",
-        }}
-      >
-        <span>
-          {/* comment */}
-          hello world
-        </span>
-      </div>
-      <div></div>
-      <div></div>
-      <span></span>
+      <FunctionalComponent />
+      <ClassComponent />
     </div>
   );
 };
