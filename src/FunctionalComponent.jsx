@@ -1,9 +1,11 @@
 const FunctionalComponent = () => {
-    return (
-        <div>
-            Functional Component...
-        </div>
-    );
+  const value = prompt("1 or 2");
+  return (
+    <div>
+      سلام دوستان
+      {value === "1" ? <h1>خوش اومدی!</h1> : null}
+    </div>
+  );
 };
 
 export default FunctionalComponent;
