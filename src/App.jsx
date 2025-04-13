@@ -8,7 +8,14 @@ const App = () => {
   return (
     <div>
       <button onClick={changeText}>Click me</button>
-      <ChildComponent text={text} />
+      <ChildComponent text={text}>
+        <p>children</p>
+        <p>children</p>
+        <p>children</p>
+        <p>children</p>
+        <p>children</p>
+        <p>children</p>
+      </ChildComponent>
     </div>
   );
 };

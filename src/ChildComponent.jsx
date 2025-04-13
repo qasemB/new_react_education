@@ -1,10 +1,9 @@
-const ChildComponent = ({ text }) => {
-    console.log("Chil Component...");
-    
+const ChildComponent = ({ text, children }) => {
   return (
     <div>
       <h1>Child Component</h1>
-      <p>{text}</p>
+      <div>{text}</div>
+      {children}
     </div>
   );
 };
