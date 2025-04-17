@@ -1,10 +1,5 @@
-const UserInfo = ({ name, age, email }) => {
-  const handleDelete = (e,value) => {
-    console.log(value);
-  };
-  // const handleChange = (e) => {
-  //   console.log(e.target.value);
-  // };
+const UserInfo = ({ name, age, email, handleDelete }) => {
+
   return (
     <div>
       <ul>
@@ -12,8 +7,7 @@ const UserInfo = ({ name, age, email }) => {
         <li>Age: {age}</li>
         <li>Email: {email}</li>
         <li>
-          <button onClick={(e)=>handleDelete(e,"test")}>Delete</button>
-          {/* <input type="text" onChange={handleChange} /> */}
+          <button onClick={handleDelete}>Delete</button>
         </li>
       </ul>
     </div>

@@ -1,6 +1,7 @@
+import { useState } from "react";
 import UserInfo from "./UserInfo";
 
-const users = [
+const initialUsers = [
   { name: "John Doe", age: 25, email: "john.doe@example.com" },
   { name: "Jane Doe", age: 26, email: "jane.doe@example.com" },
   { name: "John Smith", age: 30, email: "john.smith@example.com" },
@@ -9,11 +10,19 @@ const users = [
 
 
 const App = () => {
+  const [users, setUsers] = useState(initialUsers);
+
+  const handleDelete = (name) => {
+    const newUsers = users.filter((user) => user.name !== name);
+    setUsers(newUsers);
+  }
+
 
   return (
     <div>
+      {/* <input type="text" onChange={(e)=>setSearch(e.target.value)} /> */}
       {users.map((user) => (
-        <UserInfo key={user.name} {...user} />
+        <UserInfo key={user.name} {...user} handleDelete={()=>handleDelete(user.name)} />
       ))}
     </div>
   );
