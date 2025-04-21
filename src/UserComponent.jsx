@@ -4,12 +4,18 @@ const UserComponent = () => {
   const [age, setAge] = useState(20);
 
   useEffect(() => {
-    //Mount
     console.log("Send a request to the server");
-
+  
+    const handleClick = () => {
+      console.log("Age is 20");
+    };
+  
+    const element = document.getElementById("age");
+    element?.addEventListener("click", handleClick);
+  
     return () => {
-      //Unmount
       console.log("Hoping to meet you.");
+      element?.removeEventListener("click", handleClick);
     };
   }, []);
 
