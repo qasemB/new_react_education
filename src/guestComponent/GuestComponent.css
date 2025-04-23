@@ -1,0 +1,92 @@
+/* GuestComponent Styles */
+.guest-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(to right, #f8f9fa, #e2f1f8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.guest-title {
+  color: #343a40;
+  margin-bottom: 25px;
+  font-size: 2.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.guest-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #00b894, #55efc4);
+}
+
+.guest-message {
+  font-size: 1.2rem;
+  color: #636e72;
+  margin: 30px 0;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.guest-message:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.guest-message::before {
+  content: '👋';
+  font-size: 1.5rem;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn {
+  background: linear-gradient(to right, #00b894, #55efc4);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 20px;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 184, 148, 0.3);
+}
+
+.login-btn:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .guest-container {
+    margin: 20px;
+    padding: 20px;
+  }
+} 

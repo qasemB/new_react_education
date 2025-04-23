@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./UserComponent.css";
 
 const UserComponent = () => {
   const [age, setAge] = useState(20);
@@ -26,14 +27,14 @@ const UserComponent = () => {
   }, [age]);
 
   return (
-    <div>
-      <h1>UserComponent</h1>
-      <button onClick={() => setAge((prev) => prev + 1)}>
+    <div className="user-container">
+      <h1 className="user-title">UserComponent</h1>
+      <button className="user-btn" onClick={() => setAge((prev) => prev + 1)}>
         Change Age
       </button>
-      <ul>
+      <ul className="user-info">
         <li>Name: Qasem</li>
-        <li>Age: {age}</li>
+        <li>Age: <span className="user-age">{age}</span></li>
         <li>Email: Qasem@gmail.com</li>
       </ul>
     </div>
