@@ -1,6 +1,6 @@
 import Users from "./Users";
 import Posts from "./Posts";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { /*Link,*/ NavLink, Route, Routes } from "react-router";
 
 const App = () => {
   return (
@@ -12,25 +12,35 @@ const App = () => {
           </h1>
 
           <div className="flex justify-center mb-8 gap-4">
-            <button
-              className={`px-6 py-3 rounded font-medium transition-all duration-200`}
+            <NavLink
+              to="/users"
+              style={({ isActive }) => ({
+                backgroundColor: isActive ? "indigo-600" : "gray-100",
+                color: isActive ? "white" : "gray-700",
+                padding: "0.5rem 1rem",
+                borderRadius: "0.25rem",
+              })}
+              className={({ isActive }) => `p-2 rounded ${isActive
+                ? "bg-indigo-600 text-white"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"}` }
             >
               کاربران
-            </button>
-            <button
-              className={`px-6 py-3 rounded font-medium transition-all duration-200`}
+            </NavLink>
+            <NavLink
+              to="/posts"
+              className={({ isActive }) => `p-2 rounded ${isActive
+                ? "bg-indigo-600 text-white"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"}` }
             >
               پست‌ها
-            </button>
+            </NavLink>
           </div>
 
           <div className="bg-gray-50 rounded p-4">
-            <BrowserRouter>
-              <Routes>
-                <Route path="/users" element={<Users />} />
-                <Route path="/posts" element={<Posts />} />
-              </Routes>
-            </BrowserRouter>
+            <Routes>
+              <Route path="/users" element={<Users />} />
+              <Route path="/posts" element={<Posts />} />
+            </Routes>
           </div>
         </div>
       </div>
