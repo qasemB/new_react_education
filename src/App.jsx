@@ -2,6 +2,7 @@ import Users from "./Users";
 import Posts from "./Posts";
 import { /*Link,*/ NavLink, Route, Routes } from "react-router";
 import AddUser from "./AddUser";
+import UserDetails from "./UserDetails";
 
 const App = () => {
   return (
@@ -43,6 +44,8 @@ const App = () => {
           <Routes>
             <Route path="/users" element={<Users />} >
               <Route path="add-user" element={<AddUser />} />
+              {/* <Route path=":userId" element={<UserDetails />} /> */}
+              <Route path="user-details/:userId" element={<UserDetails />} />
             </Route>
             <Route path="/posts" element={<Posts />} />
           </Routes>
