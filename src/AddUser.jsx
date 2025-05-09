@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import {  useNavigate } from "react-router";
 
 const AddUser = () => {
+    const navigate = useNavigate()
     return (
         <div className="fixed w-full h-screen left-0 top-0 z-20 bg-black/50 flex justify-center items-center">
             <div className="bg-white w-1/3 py-5 rounded-2xl shadow">
@@ -17,9 +18,9 @@ const AddUser = () => {
                     <button type="submit" className="mt-4 bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-150">افزودن کاربر</button>
                 </form>
                 <div className="flex justify-end px-10">
-                    <Link to={"/users"} className="bg-gray-500 text-white rounded py-1 px-2 !no-underline">
+                    <button onClick={()=>navigate(-1)} className="bg-gray-500 text-white rounded py-1 px-2 !no-underline">
                         بازگشت
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>
