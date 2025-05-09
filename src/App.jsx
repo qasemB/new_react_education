@@ -1,23 +1,26 @@
 import Users from "./Users";
 import Posts from "./Posts";
-import { /*Link,*/ Navigate, NavLink, Route, Routes, useNavigate } from "react-router";
+import {
+  Navigate,
+  /*Link, Navigate,*/ NavLink,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router";
 import AddUser from "./AddUser";
 import UserDetails from "./UserDetails";
+import NotFound from "./NotFound";
 
 const App = () => {
+  const navigate = useNavigate();
 
-  const gotoUsersPage = true
-
-  const navigate = useNavigate()
-
-  const handleSomeAction = ()=>{
+  const handleSomeAction = () => {
     // Do something..............
-    navigate("/users", {state: {testparam: "123"}})
-  }
-  
+    navigate("/users", { state: { testparam: "123" } });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
-      {gotoUsersPage ? (<Navigate to={"users"}/>) : null}
       <div className="max-w-4xl mx-auto bg-white rounded shadow-md overflow-hidden">
         <header className="fixed top-0 left-0 right-0 bg-white shadow-md p-4">
           <div className="flex justify-center items-center gap-4">
@@ -59,7 +62,10 @@ const App = () => {
 
         <div className="p-6 mt-20">
           <h1 className="text-center">به اپلیکیشن من خوش آمدید</h1>
-          <button onClick={handleSomeAction} className="bg-indigo-500 hover:bg-indigo-700 text-white py-2 px-4 rounded">
+          <button
+            onClick={handleSomeAction}
+            className="bg-indigo-500 hover:bg-indigo-700 text-white py-2 px-4 rounded"
+          >
             انجام عملیات و ریدایرکت
           </button>
           <Routes>
@@ -69,6 +75,8 @@ const App = () => {
               <Route path="user-details/:userId" element={<UserDetails />} />
             </Route>
             <Route path="/posts" element={<Posts />} />
+            <Route path="/" element={<Navigate to={"/users"} />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>
