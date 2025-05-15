@@ -16,8 +16,6 @@
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
-    "react-router": "^7.5.3",
-    "react-router-dom": "^7.5.3",
     "tailwindcss": "^4.1.4"
   },
   "devDependencies": {

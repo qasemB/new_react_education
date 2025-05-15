@@ -1,14 +1,1 @@
 @import "tailwindcss";
-
-@font-face {
-  font-family: "shabnam";
-  src: url("./assets/fonts/Shabnam-FD-WOL.ttf") format("woff");
-}
-
-* {
-  font-family: "shabnam";
-}
-
-a {
-  text-decoration: none !important;
-}
