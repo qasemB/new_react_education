@@ -1,6 +1,8 @@
 import { createPortal } from "react-dom";
+import { permissionHOC } from "./permissionHOC";
 
 const UserAdd = ({setShowModal}) => {
+
     return createPortal(
         (
             <div className="fixed inset-0 bg-black/50 flex justify-center items-center">
@@ -30,4 +32,4 @@ const UserAdd = ({setShowModal}) => {
         , document.getElementById("modal-root"))
 };
 
-export default UserAdd;
+export default permissionHOC(UserAdd);

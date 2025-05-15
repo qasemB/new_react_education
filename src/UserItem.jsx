@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { UserContext } from "./UserContext";
+import { permissionHOC } from "./permissionHOC";
 
 const UserItem = ({user}) => {
-    const {deleteUser} = useContext(UserContext)
-    return (
+    const {deleteUser, hasPermission} = useContext(UserContext)
+
+    return hasPermission ? (
         <div className="bg-white shadow overflow-hidden sm:rounded-lg p-4">
             <h1 className="text-lg font-medium text-gray-900">{user.name}</h1>
             <p className="mt-1 text-sm text-gray-500">{user.email}</p>
@@ -11,7 +13,7 @@ const UserItem = ({user}) => {
                 Delete
             </button>
         </div>
-    );
+    ) : null
 };
 
-export default UserItem;
+export default permissionHOC(UserItem);
