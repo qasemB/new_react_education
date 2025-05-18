@@ -1,19 +1,20 @@
+import Darkmode from "../../components/Darkmode";
 import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
   return (
-    <div className="fixed right-0 h-screen w-64 bg-blue-200 shadow-lg flex flex-col justify-between">
+    <div className="fixed right-0 h-screen w-64 shadow-lg flex flex-col justify-between">
       {/* topp content */}
-      <div className="flex justify-between items-center h-16 p-2 bg-blue-300">
+      <div className="flex justify-between items-center h-16 p-2 bg-blue-300 dark:bg-gray-900">
         <div>
           <h1 className="">پنل مدیریت</h1>
         </div>
         <div>
-          <h1 className="">darkmode</h1>
+          <Darkmode />
         </div>
       </div>
       {/* bottom content */}
-      <div className="flex flex-col gap-4 flex-1 p-4 bg-blue-200 rounded-b-lg">
+      <div className="flex flex-col gap-4 flex-1 p-4 bg-blue-200 dark:bg-gray-900 rounded-b-lg">
         <ul className="">
           <SidebarItem to="/users">کاربران</SidebarItem>
           <SidebarItem to="/posts">پست ها</SidebarItem>
