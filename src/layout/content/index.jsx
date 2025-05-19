@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import UsersPage from "../../pages/users";
 import PostsPage from "../../pages/posts";
 import CommentsPage from "../../pages/comments";
@@ -15,6 +15,7 @@ const Content = () => {
                     <Route path="/comments" element={<CommentsPage />} />
                     <Route path="/tasks" element={<TasksPage />} />
                     <Route path="/gallery" element={<GalleriesPage />} />
+                    <Route path="/" element={<Navigate to="/users" />} />
                 </Routes>
             </div>
         </div>
