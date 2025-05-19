@@ -4,6 +4,7 @@ import PostsPage from "../../pages/posts";
 import CommentsPage from "../../pages/comments";
 import TasksPage from "../../pages/tasks";
 import GalleriesPage from "../../pages/galleries";
+import AddUserPage from "../../pages/users/add-user";
 
 const Content = () => {
     return (
@@ -11,6 +12,7 @@ const Content = () => {
             <div className="p-4 h-full w-full">
                 <Routes>
                     <Route path="/users" element={<UsersPage />} />
+                    <Route path="/users/add" element={<AddUserPage />} />
                     <Route path="/posts" element={<PostsPage />} />
                     <Route path="/comments" element={<CommentsPage />} />
                     <Route path="/tasks" element={<TasksPage />} />
