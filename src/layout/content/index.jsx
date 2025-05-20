@@ -13,6 +13,7 @@ const Content = () => {
                 <Routes>
                     <Route path="/users" element={<UsersPage />} />
                     <Route path="/users/add" element={<AddUserPage />} />
+                    <Route path="/users/edit/:id" element={<AddUserPage />} />
                     <Route path="/posts" element={<PostsPage />} />
                     <Route path="/comments" element={<CommentsPage />} />
                     <Route path="/tasks" element={<TasksPage />} />

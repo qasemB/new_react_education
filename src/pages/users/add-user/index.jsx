@@ -1,11 +1,18 @@
 import { useState } from 'react';
+import { createUserServicec, updateUserService } from '../../../services/users';
+import { useLocation, useNavigate } from 'react-router';
 
 export default function AddUserPage() {
+    const navigate = useNavigate()
+
+    const location = useLocation()
+    const userToEdit = location.state?.user
+
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        website: ''
+        name: userToEdit?.name || '',
+        email: userToEdit?.email || '',
+        phone: userToEdit?.phone || '',
+        website: userToEdit?.website || ''
     });
 
     const handleChange = (e) => {
@@ -16,18 +23,22 @@ export default function AddUserPage() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        // Here you would typically send the data to an API
-        alert('User added successfully!');
-        // Clear form
-        setFormData({ name: '', email: '', phone: '', website: '' });
+        const res = userToEdit ? await updateUserService(userToEdit.id, formData) : await createUserServicec(formData)
+        if (res.status === 201 || res.status === 200) {
+            console.log(res)
+            // Here you would typically send the data to an API
+            alert('عملیات با موفقیت انجام شد:'+ res.data.id);
+            // Clear form
+            setFormData({ name: '', email: '', phone: '', website: '' });
+            navigate(-1)
+        }        
     };
 
     return (
         <div className="max-w-2xl mx-auto p-6">
-            <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">افزودن کاربر</h1>
+            <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">{userToEdit ? 'ویرایش کاربر' : 'افزودن کاربر'}</h1>
             
             <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-8">
                 <div className="mb-6">
@@ -87,7 +98,7 @@ export default function AddUserPage() {
                         type="submit" 
                         className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 shadow-md"
                     >
-                       ثبت
+                        {userToEdit ? 'ویرایش' : 'ثبت'}
                     </button>
                 </div>
             </form>
